@@ -1,27 +1,29 @@
-import BackToTopButton from "./BackToTopButton";
+import { faHeart } from "@fortawesome/free-solid-svg-icons/faHeart";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons/faMugHot";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReact } from "@fortawesome/free-brands-svg-icons/faReact";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  return (
-    <div className="relative bg-gray-100 p-12">
-      <div className="absolute top-12 right-12">
-        <BackToTopButton />
-      </div>
-      <div>&#169; {currentYear}</div>
-      <div className="py-12">
-        <p className="uppercase">Have a project in mind?</p>
-        <p className="text-9xl uppercase opacity-20">Let's Talk</p>
-      </div>
-      <div className="flex gap-4">
-        <div className="rounded-full border px-4 py-2 tracking-wider uppercase">
-          LinkedIn
-        </div>
-        <div className="rounded-full border px-4 py-2 tracking-wider uppercase">
-          github
-        </div>
-      </div>
-    </div>
-  );
+    const currentYear = new Date().getFullYear();
+    return (
+        <footer className="border-t px-4 py-8 text-center">
+            <div className="mb-8">
+                <ul className="flex flex-col justify-center gap-4 lg:flex-row">
+                    <li className="cursor-pointer hover:underline">Resume</li>
+                    <li className="cursor-pointer hover:underline">LinkedIn</li>
+                    <li className="cursor-pointer hover:underline">Github</li>
+                </ul>
+            </div>
+            <div>
+                <p className="">
+                    &copy; {currentYear} Ivan Garcia. Built with{" "}
+                    <FontAwesomeIcon icon={faMugHot} className="text-xl" />,{" "}
+                    <FontAwesomeIcon icon={faHeart} className="text-xl" /> and{" "}
+                    <FontAwesomeIcon icon={faReact} className="text-xl" />.
+                </p>
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;
