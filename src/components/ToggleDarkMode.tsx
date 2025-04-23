@@ -25,18 +25,18 @@ const ToggleDarkMode = () => {
         <button
             onClick={toggleTheme}
             className={`relative inline-flex h-6 w-11 cursor-pointer items-center rounded-full transition-colors duration-300 ${
-                darkMode ? "bg-gray-800" : "bg-yellow-300"
+                darkMode ? "bg-blue-800" : "bg-blue-400"
             }`}
         >
             <span
-                className={`inline-flex h-4 w-4 transform items-center justify-center rounded-full bg-white transition-transform duration-300 ${
+                className={`inline-flex h-4 w-4 transform items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-300 ${
                     darkMode ? "translate-x-6" : "translate-x-1"
                 }`}
             >
                 {darkMode ? (
                     <FontAwesomeIcon
                         icon={faMoon}
-                        className="h-3 w-3 text-gray-800"
+                        className="h-3 w-3 text-blue-800"
                     />
                 ) : (
                     <FontAwesomeIcon

@@ -1,28 +1,44 @@
 import Project from "./Project";
-import SpoonfedImage from "../assets/images/spoonfed.png";
-import UActTrackImage from "../assets/images/UActTrack-logo.png";
+import { motion } from "motion/react";
+import { projectsData } from "../data/projectsData";
 
 const Projects = () => {
     return (
-        <div
+        <section
             id="projects"
-            className="flex min-h-screen flex-col space-y-12 px-4 py-8 lg:mx-auto lg:w-3/4 lg:py-[100px]"
+            className="bg-[var(--light-accent)] px-4 py-16 dark:bg-[var(--dark-bg)]"
         >
-            <h1 className="mb-8 text-center text-xl font-bold">Projects</h1>
+            <div className="container mx-auto max-w-5xl">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="mb-12 text-center"
+                >
+                    <h2 className="mb-2 inline-block border-b-4 border-[var(--primary-blue)] pb-1 text-3xl font-bold text-[var(--light-text)] dark:text-[var(--dark-text)]">
+                        Projects
+                    </h2>
+                    <p className="mt-4 text-center text-[var(--light-text)]/70 dark:text-[var(--dark-text)]/70">
+                        Here are some of my recent projects I've worked on
+                    </p>
+                </motion.div>
 
-            <Project
-                image={SpoonfedImage}
-                name="Spoonfed"
-                desc="Spoonfed is a modern recipe and cookbook platform where food lovers can discover, save, and share delicious meals. Whether you're a home cook or a culinary explorer, Spoonfed brings inspiration to your kitchen with handpicked recipes, smart search tools, and a supportive food-loving community."
-                features="none atm"
-            />
-            <Project
-                image={UActTrackImage}
-                name="UActTrack"
-                desc="Spoonfed is a modern recipe and cookbook platform where food lovers can discover, save, and share delicious meals. Whether you're a home cook or a culinary explorer, Spoonfed brings inspiration to your kitchen with handpicked recipes, smart search tools, and a supportive food-loving community."
-                features="none atm"
-            />
-        </div>
+                <div className="flex flex-col space-y-16">
+                    {projectsData.map((projects, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <Project {...projects} reverse={index % 2 === 1} />
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 };
 

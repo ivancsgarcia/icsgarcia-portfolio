@@ -19,24 +19,26 @@ const Navbar = () => {
         <header
             className={`${
                 isScrolled
-                    ? "bg-[#fafafa] shadow-md dark:bg-[#1a1a1a]"
+                    ? "bg-white shadow-md dark:bg-[var(--dark-secondary)]"
                     : "bg-transparent"
             } fixed top-0 right-0 left-0 z-50 transition-all duration-300`}
         >
-            <div className="flex justify-between p-8 md:justify-around">
-                <div>Ivan Garcia</div>
+            <div className="flex justify-between p-6 md:justify-around">
+                <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                    Ivan Garcia
+                </div>
                 <nav className="hidden md:block">
                     <ul className="flex gap-8">
-                        <li className="cursor-pointer hover:underline">
+                        <li className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
                             <a href="#home">Home</a>
                         </li>
-                        <li className="cursor-pointer hover:underline">
+                        <li className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
                             <a href="#about">About</a>
                         </li>
-                        <li className="cursor-pointer hover:underline">
+                        <li className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
                             <a href="#projects">Projects</a>
                         </li>
-                        <li className="cursor-pointer hover:underline">
+                        <li className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
                             <a href="#contact">Contact</a>
                         </li>
                         <li>
@@ -46,34 +48,34 @@ const Navbar = () => {
                 </nav>
                 <div
                     onClick={() => setOpenMenu(!openMenu)}
-                    className="block cursor-pointer md:hidden"
+                    className="block cursor-pointer text-gray-700 hover:text-blue-600 md:hidden dark:text-gray-300 dark:hover:text-blue-400"
                 >
                     <FontAwesomeIcon icon={faBars} />
                 </div>
             </div>
             {openMenu && (
-                <nav className="bg-gray-50 md:hidden dark:bg-[#1a1a1a] dark:text-[#fafafa]">
+                <nav className="bg-white shadow-md md:hidden dark:bg-[var(--dark-secondary)]">
                     <ul className="flex flex-col text-center">
-                        <li className="p-4">
+                        <li className="border-b border-gray-100 p-4 dark:border-gray-700">
                             <a
                                 href="#home"
-                                className="cursor-pointer hover:underline"
+                                className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
                             >
                                 Home
                             </a>
                         </li>
-                        <li className="p-4">
+                        <li className="border-b border-gray-100 p-4 dark:border-gray-700">
                             <a
                                 href="#about"
-                                className="cursor-pointer hover:underline"
+                                className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
                             >
                                 About
                             </a>
                         </li>
-                        <li className="p-4">
+                        <li className="border-b border-gray-100 p-4 dark:border-gray-700">
                             <a
                                 href="#projects"
-                                className="cursor-pointer hover:underline"
+                                className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
                             >
                                 Projects
                             </a>
@@ -81,10 +83,13 @@ const Navbar = () => {
                         <li className="p-4">
                             <a
                                 href="#contact"
-                                className="cursor-pointer hover:underline"
+                                className="cursor-pointer text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
                             >
                                 Contact
                             </a>
+                        </li>
+                        <li className="flex justify-center p-4">
+                            <ToggleDarkMode />
                         </li>
                     </ul>
                 </nav>

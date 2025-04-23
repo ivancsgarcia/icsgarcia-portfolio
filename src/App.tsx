@@ -12,7 +12,7 @@ function App() {
     useDarkMode();
     return (
         <>
-            <div className="relative container mx-auto">
+            <div className="relative container mx-auto bg-white text-gray-900 dark:bg-[var(--dark-bg)] dark:text-[var(--dark-text)]">
                 <Navbar />
                 <Hero />
                 <AboutMe />
